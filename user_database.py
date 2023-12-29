@@ -17,6 +17,7 @@ def is_choice_valid(arg):
     
 
 # Use Case - Main Screen
+os.system("clear")
 header = "Simple Database"
 print("-" * len(header))
 print(header)
