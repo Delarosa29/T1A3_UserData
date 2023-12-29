@@ -112,6 +112,61 @@ def find_contact():
     return
 
 
+# Function for update a contact
+def update_contact(email):
+    os.system("clear")  
+    contacts = load()
+    found = False
+    
+    # Goes over list of existing contacts
+    for i, contact in enumerate(contacts):
+        # If email matches, will begin input prompt to update info
+        if contact["email"] == email:
+            found = True
+            
+            # Prompt to update user info
+            print("Enter new contact details:\n")
+            print("First Name: ", end="")
+            first_name = input()
+            print("Last Name: ", end="")
+            last_name = input()
+            print("Mobile Number: ", end="")
+            mobile = input()
+            
+            # Update the contact in the list
+            contacts[i] = {
+                "first_name": first_name,
+                "last_name": last_name,
+                "mobile": mobile,
+                "email": email                
+            }
+            os.system("clear")
+
+            # Displays the old entry info
+            print("\nPrevious Entry:")
+            print("First Name:", contact.get("first_name"))
+            print("Last Name:", contact.get("last_name"))
+            print("Mobile:", contact.get("mobile"))
+            print("Email:", contact.get("email"))
+            print("\nUpdated Entry:")
+            
+            # Displays updated info
+            print("First Name:", first_name)
+            print("Last Name:", last_name)
+            print("Mobile:", mobile)
+            print("Email:", email)
+            print("\nContact updated successfully.")
+            input("\nPress Enter to continue...")
+            dump(contacts)  # Save the updated contacts to the file
+            break
+
+    # If email does not match, prompt user back to menu selection
+    if not found:
+        print(f"Unable to find contact with email: {email}")
+        input("\nPress Enter to continue...")
+    return
+
+
 while True:
 # Use Case - Main Screen
     os.system("clear")
@@ -144,10 +199,14 @@ while True:
         elif int_choice == 2:
             find_contact()
             continue
+        # Update existing contact
         elif int_choice == 3:
+            os.system("clear")
             print("Update contact was selected")
             print("\nEnter email of contact to update: ")
-            pass
+            email = input()
+            update_contact(email)
+            continue
         # Delete contact
         elif int_choice == 4:
             print("Delete contact was selected")
