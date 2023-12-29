@@ -33,28 +33,30 @@ print("4. Delete a contact by email")
 print("5. Show Database Contents")
 print("6. Exit\n")
 
-choice = input()
-if is_choice_valid(choice):
-    int_choice = int(choice)
-    # Create new contact
-    if int_choice == 1:
-        print("Create contact was selected")
-        pass
-    # Find contact
-    elif int_choice == 2:
-        pass
-    elif int_choice == 3:
-        print("Update contact was selected")
-        print("\nEnter email of contact to update: ")
-        pass
-    # Delete contact
-    elif int_choice == 4:
-        print("Delete contact was selected")
-        pass
-    elif int_choice == 5:
-        print("Showing Database Contents")
-        pass
-    elif int_choice == 6:
-        print("Exit was selected; Goodbye!")
-        pass
-        
+while True:
+    choice = input()
+    if is_choice_valid(choice):
+        int_choice = int(choice)
+        # Create new contact
+        if int_choice == 1:
+            print("Create contact was selected")
+            pass
+        # Find contact
+        elif int_choice == 2:
+            print("Find contact was selected")
+            pass
+        elif int_choice == 3:
+            print("Update contact was selected")
+            print("\nEnter email of contact to update: ")
+            pass
+        # Delete contact
+        elif int_choice == 4:
+            print("Delete contact was selected")
+            pass
+        elif int_choice == 5:
+            print("Showing Database Contents")
+            pass
+        elif int_choice == 6:
+            print("Exit was selected; Goodbye!")
+            break
+            
