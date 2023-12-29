@@ -1,5 +1,5 @@
 # Imports functions from separate python file 
-from db_functions import (is_choice_valid, create_new_contact, find_contact, update_contact, delete_contact, show_contacts)
+from db_functions import (is_choice_valid, create_new_contact, find_contact, update_contact, delete_contact, show_contacts, clear_screen)
 import os
 # Imports json file for library read and write
 import json
@@ -8,7 +8,7 @@ import json
 while True:
 # Use Case - Main Screen
     # Clears terminal screen
-    os.system("clear")
+    clear_screen()
     # Title header
     header = "Simple Database"
     # Prints line along header
@@ -41,7 +41,7 @@ while True:
             continue
         # Update existing contact
         elif int_choice == 3:
-            os.system("clear")
+            clear_screen()
             print("Update contact was selected")
             print("\nEnter email of contact to update: ")
             # Ask for email for selection
@@ -62,7 +62,7 @@ while True:
             continue
         # Exits application
         elif int_choice == 6:
-            os.system("clear")
+            clear_screen()
             print("Exit was selected; Goodbye!")
             break
     else:

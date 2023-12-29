@@ -3,6 +3,10 @@ import os
 import json
 
 
+def clear_screen():
+    os.system("clear")
+
+
 # Checks if input choice is valid
 def is_choice_valid(arg):
     try:
@@ -48,7 +52,7 @@ def load():
 # Function for creating new contact
 def create_new_contact():
     # Clears terminal screen
-    os.system("clear")
+    clear_screen()
     header = "Adding New Contact"
     print("-" * len(header))
     print(header)
@@ -62,7 +66,7 @@ def create_new_contact():
     print("Enter Mobile Number: ")
     mobile = input()
     print("Enter Email Address: ")
-    email = input().lower()
+    email = input().lower().strip()
 
     # Creates library entries in format
     contact = {
@@ -80,7 +84,7 @@ def create_new_contact():
         # Flush the database into the filesystem
         dump(contacts)
         # Confirmation screen
-        os.system("clear")
+        clear_screen()
         print("\nNew contact added successfully:\n")
         print("First Name:", first_name)
         print("Last Name:", last_name)
@@ -96,11 +100,11 @@ def create_new_contact():
 # Function for find a contact
 def find_contact():
     # Clears terminal screen
-    os.system("clear")
+    clear_screen()
     print("Enter the email address of the contact to find: ")
     # .strip() Returns the input string while removing trailing and leading white space
     email = input().lower().strip()
-    os.system("clear")
+    clear_screen()
     print(f"\nValue of email: {email}")
     # Loads contacts from json 
     contacts = load()
@@ -129,7 +133,7 @@ def find_contact():
 # Function to update a contact
 def update_contact(email):
     # Clears terminal screen
-    os.system("clear")
+    clear_screen()
     email = email.lower().strip()  
     contacts = load()
     found = False
@@ -157,7 +161,7 @@ def update_contact(email):
                 "email": email                
             }
             # Clears terminal screen
-            os.system("clear")
+            clear_screen()
 
             # Displays the old entry info
             print("\nPrevious Entry:")
@@ -187,7 +191,7 @@ def update_contact(email):
 # Function to delete contact
 def delete_contact():
     # Clears terminal screen
-    os.system("clear")
+    clear_screen()
     # Displays current menu selection
     header = "Deleting Contact"
     print("-" * len(header))
@@ -219,7 +223,7 @@ def delete_contact():
             input('\nPress Enter to Continue...')
         else:
             # Shows when email does not match any from the list
-            os.system("clear")
+            clear_screen()
             print(f"Value of email: {email_to_delete}")
             print(f"Unable to find contact with email: {email_to_delete}")
             input('\nPress Enter to Continue...')
