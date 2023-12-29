@@ -60,5 +60,5 @@ while True:
             print("Exit was selected; Goodbye!")
             break
     else:
-        print("Invalid choice - {choice}; try again...")
-            
+        print(f"Invalid choice - {choice}; try again...")
+        continue
