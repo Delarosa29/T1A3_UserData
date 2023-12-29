@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # Imports functions from separate python file 
 from db_functions import (is_choice_valid, create_new_contact, 
                           find_contact, update_contact, 

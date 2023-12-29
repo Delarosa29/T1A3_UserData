@@ -251,3 +251,6 @@ def show_contacts():
     # Asks for user confirmation before returning back to menu
     print('\nHit ENTER key to continue...')
     input()
+    
+    
+    

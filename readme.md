@@ -151,3 +151,48 @@ Although not docstring style like PEP 8, I have added comments to explain the fu
         ![exit](./docs/exit.png)
 
 ## Help documentation
+
+### Installation
+
+1. Copy the files into a temporary directory, e.g., /home/edwardubunut/tmp
+- db_functions.py
+- install.sh
+- readme.md
+- simple_db.json
+- user_database.py
+2. Run the install.sh file using the /bin/sh command
+```
+$ /bin/sh install.sh
+```
+NOTE: The command above will first check whether Python3 is present in the runtime environment. If not, the installation script will attempt to download the python3 package and install it.
+
+Final Product: When the installation is completed, it will create a folder called `app` which contains the executable file named `user_database.py`.
+
+The user can execute the app using the following command:
+```
+$ ./user_database.py
+```
+
+### Additional Information - Making A File Executable
+
+Making the Python script executable involves two steps.
+1. Include following directive (on line 1)
+Determine the current Python executable using `which` command
+```
+$ which python3
+/usr/bin/python3
+```
+include the following directive in your Python code (line 1)
+```
+#!/usr/bin/python3
+```
+
+2. Add `execute` file mode using the chmod command
+```
+$ chmod u+x user_database.py
+```
+Where: u+x - means only give executable to the currently logged-in user
+
+Note: Run the `chmod` command using sudo if file is located in a privileged folder (e.g., /opt)
+
+
