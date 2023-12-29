@@ -31,6 +31,14 @@ def create_new_contact():
     print("Enter Email Address: ")
     email = input()
 
+    contact = {
+        "first_name": first_name,
+        "last_name": last_name,
+        "mobile": mobile,
+        "email": email,
+    }
+
+
 
 # Use Case - Main Screen
 os.system("clear")
