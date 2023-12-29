@@ -1,4 +1,5 @@
 import os
+# Imports json file for library
 import json
 
 
@@ -10,18 +11,28 @@ def is_choice_valid(arg):
         if 1 <= int_val <= 6:
             return True
         return False 
+    # For error handling
     except ValueError as ve:
         return False
     except BaseException as be:
         return False
+    
+
+# Opens or create json file and flush the contacts into json file (as str).
+def dump(contacts):
+    with open("./simple_db.json", "w") as simple_db:
+        simple_db.write(json.dumps(contacts))
 
 
 # Function for creating new contact
 def create_new_contact():
+    # Clears terminal
+    os.system("clear")
     header = "Adding New Contact"
     print("-" * len(header))
     print(header)
     print("-" * len(header), "\n")
+    # Starts input for user info
     print("Enter First Name: ")
     first_name = input()
     print("Enter Last Name: ")
@@ -31,6 +42,7 @@ def create_new_contact():
     print("Enter Email Address: ")
     email = input()
 
+    # Creates library entries
     contact = {
         "first_name": first_name,
         "last_name": last_name,
@@ -38,6 +50,8 @@ def create_new_contact():
         "email": email,
     }
 
+    # Shows new entry info
+    print(f"Adding new contact details: {contact}")
 
 
 # Use Case - Main Screen
@@ -64,7 +78,9 @@ while True:
         # Create new contact
         if int_choice == 1:
             print("Create contact was selected")
-            pass
+            # Calls on create contact function
+            create_new_contact()
+            continue
         # Find contact
         elif int_choice == 2:
             print("Find contact was selected")
