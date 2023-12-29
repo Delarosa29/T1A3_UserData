@@ -59,4 +59,6 @@ while True:
         elif int_choice == 6:
             print("Exit was selected; Goodbye!")
             break
+    else:
+        print("Invalid choice - {choice}; try again...")
             
