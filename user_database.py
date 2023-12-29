@@ -65,17 +65,14 @@ def create_new_contact():
         "mobile": mobile,
         "email": email,
     }
-
-    # Shows new entry info
-    print(f"Adding new contact details: {contact}")
-    
+   
     try:
         # Retrieve the contacts data
         contacts = load()
         # Append the new contact to the database in memory
         contacts.append(contact)
         # Flush the database into the filesystem
-        dump(contacts)
+        dump(contacts)               
     except BaseException as be:
         print(f"Error occurred: {be=}, {be}")
     return
@@ -85,6 +82,7 @@ def create_new_contact():
 def find_contact():
     os.system("clear")
     print("Enter the email address of the contact to find: ")
+    # .strip() Returns the input string while removing trailing and leading white space
     email = input().strip()
     os.system("clear")
     print(f"\nValue of email: {email}")
@@ -112,7 +110,7 @@ def find_contact():
     return
 
 
-# Function for update a contact
+# Function to update a contact
 def update_contact(email):
     os.system("clear")  
     contacts = load()
@@ -140,6 +138,7 @@ def update_contact(email):
                 "mobile": mobile,
                 "email": email                
             }
+            # Clears terminal screen
             os.system("clear")
 
             # Displays the old entry info
@@ -167,8 +166,54 @@ def update_contact(email):
     return
 
 
+# Function to delete contact
+def delete_contact():
+    # Clears terminal
+    os.system("clear")
+    # Displays current menu selection
+    header = "Deleting Contact"
+    print("-" * len(header))
+    print(header)
+    print("-" * len(header), "\n")
+    print("Enter Email Address of the Contact to Delete: ")
+    # .strip() Returns the input string while removing trailing and leading white space
+    email_to_delete = input().strip()
+    
+    try:
+        contacts = load()
+        index_to_delete = None
+        email_found = False  # Flag to check if the email is found
+
+        # Goes over list of existing contacts
+        for i, contact in enumerate(contacts):
+            # Check if email matches
+            if contact["email"] == email_to_delete:
+                index_to_delete = i
+                email_found = True
+                break
+
+        if email_found:
+            # Remove the contact from the list if found
+            deleted_contact = contacts.pop(index_to_delete)
+            print(f"Contact deleted: {deleted_contact}")
+            print("Deletion successful")
+            dump(contacts)
+            input('\nPress Enter to Continue...')
+        else:
+            # Shows when email does not match any from the list
+            print(f"Value of email: {email_to_delete}")
+            print(f"Unable to find contact with email: {email_to_delete}")
+            input('\nPress Enter to Continue...')
+
+    except BaseException as be:
+        print(f"Error occurred: {be=}, {be}")
+
+    return
+
+
 while True:
 # Use Case - Main Screen
+    # Clears terminal
     os.system("clear")
     # Title header
     header = "Simple Database"
@@ -197,6 +242,7 @@ while True:
             continue
         # Find contact
         elif int_choice == 2:
+            # Calls on to find contact function
             find_contact()
             continue
         # Update existing contact
@@ -204,13 +250,17 @@ while True:
             os.system("clear")
             print("Update contact was selected")
             print("\nEnter email of contact to update: ")
+            # Ask for email for selection
             email = input()
+            # Calls on update_contact function and overwrites json file
             update_contact(email)
             continue
         # Delete contact
         elif int_choice == 4:
             print("Delete contact was selected")
-            pass
+            delete_contact()
+            continue
+        # Displays all the existing contact entries 
         elif int_choice == 5:
             print("Showing Database Contents")
             pass
