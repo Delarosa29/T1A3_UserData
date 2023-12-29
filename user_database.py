@@ -1,4 +1,20 @@
 import os
+import json
+
+
+# Checks if input choice is valid
+def is_choice_valid(arg):
+    try:
+        int_val = int(arg)
+        # Sets the range for menu selection
+        if 1 <= int_val <= 6:
+            return True
+        return False 
+    except ValueError as ve:
+        return False
+    except BaseException as be:
+        return False
+    
 
 # Use Case - Main Screen
 header = "Simple Database"
