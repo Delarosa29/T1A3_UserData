@@ -39,22 +39,22 @@ if is_choice_valid(choice):
     # Create new contact
     if int_choice == 1:
         print("Create contact was selected")
-        continue
+        pass
     # Find contact
     elif int_choice == 2:
-        continue
+        pass
     elif int_choice == 3:
         print("Update contact was selected")
         print("\nEnter email of contact to update: ")
-        continue
+        pass
     # Delete contact
     elif int_choice == 4:
         print("Delete contact was selected")
-        continue
+        pass
     elif int_choice == 5:
         print("Showing Database Contents")
-        continue
+        pass
     elif int_choice == 6:
         print("Exit was selected; Goodbye!")
-        break
+        pass
         
