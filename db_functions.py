@@ -2,6 +2,7 @@ import os
 # Imports json file for library read and write
 import json
 
+
 # Checks if input choice is valid
 def is_choice_valid(arg):
     try:
@@ -61,7 +62,7 @@ def create_new_contact():
     print("Enter Mobile Number: ")
     mobile = input()
     print("Enter Email Address: ")
-    email = input()
+    email = input().lower()
 
     # Creates library entries in format
     contact = {
@@ -98,7 +99,7 @@ def find_contact():
     os.system("clear")
     print("Enter the email address of the contact to find: ")
     # .strip() Returns the input string while removing trailing and leading white space
-    email = input().strip()
+    email = input().lower().strip()
     os.system("clear")
     print(f"\nValue of email: {email}")
     # Loads contacts from json 
@@ -128,14 +129,15 @@ def find_contact():
 # Function to update a contact
 def update_contact(email):
     # Clears terminal screen
-    os.system("clear")  
+    os.system("clear")
+    email = email.lower().strip()  
     contacts = load()
     found = False
     
     # Goes over list of existing contacts
     for i, contact in enumerate(contacts):
         # If email matches, will begin input prompt to update info
-        if contact["email"] == email:
+        if contact["email"] == email.lower():
             found = True
             
             # Prompt to update user info
@@ -193,7 +195,7 @@ def delete_contact():
     print("-" * len(header), "\n")
     print("Enter Email Address of the Contact to Delete: ")
     # .strip() Returns the input string while removing trailing and leading white space
-    email_to_delete = input().strip()
+    email_to_delete = input().lower().strip()
     
     try:
         contacts = load()
@@ -217,6 +219,7 @@ def delete_contact():
             input('\nPress Enter to Continue...')
         else:
             # Shows when email does not match any from the list
+            os.system("clear")
             print(f"Value of email: {email_to_delete}")
             print(f"Unable to find contact with email: {email_to_delete}")
             input('\nPress Enter to Continue...')
