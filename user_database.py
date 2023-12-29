@@ -69,24 +69,25 @@ def create_new_contact():
     print(f"Adding new contact details: {contact}")
 
 
-# Use Case - Main Screen
-os.system("clear")
-# Title header
-header = "Simple Database"
-# Prints line along header
-print("-" * len(header))
-print(header)
-print("-" * len(header), "\n")
-
-# Display list of options for user 
-print("1. Create new contact")
-print("2. Retrieve a contact by email")
-print("3. Update a contact by email")
-print("4. Delete a contact by email")
-print("5. Show Database Contents")
-print("6. Exit\n")
-
 while True:
+# Use Case - Main Screen
+    os.system("clear")
+    # Title header
+    header = "Simple Database"
+    # Prints line along header
+    print("-" * len(header))
+    print(header)
+    print("-" * len(header), "\n")
+
+    # Display list of options for user 
+    print("1. Create new contact")
+    print("2. Retrieve a contact by email")
+    print("3. Update a contact by email")
+    print("4. Delete a contact by email")
+    print("5. Show Database Contents")
+    print("6. Exit\n")
+
+
     choice = input()
     if is_choice_valid(choice):
         int_choice = int(choice)
