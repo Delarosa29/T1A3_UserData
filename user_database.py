@@ -14,7 +14,23 @@ def is_choice_valid(arg):
         return False
     except BaseException as be:
         return False
-    
+
+
+# Function for creating new contact
+def create_new_contact():
+    header = "Adding New Contact"
+    print("-" * len(header))
+    print(header)
+    print("-" * len(header), "\n")
+    print("Enter First Name: ")
+    first_name = input()
+    print("Enter Last Name: ")
+    last_name = input()
+    print("Enter Mobile Number: ")
+    mobile = input()
+    print("Enter Email Address: ")
+    email = input()
+
 
 # Use Case - Main Screen
 os.system("clear")
