@@ -41,7 +41,7 @@ def load():
 
 # Function for creating new contact
 def create_new_contact():
-    # Clears terminal
+    # Clears terminal screen
     os.system("clear")
     header = "Adding New Contact"
     print("-" * len(header))
@@ -72,7 +72,16 @@ def create_new_contact():
         # Append the new contact to the database in memory
         contacts.append(contact)
         # Flush the database into the filesystem
-        dump(contacts)               
+        dump(contacts)
+        # Confirmation screen
+        os.system("clear")
+        print("\nNew contact added successfully:\n")
+        print("First Name:", first_name)
+        print("Last Name:", last_name)
+        print("Mobile:", mobile)
+        print("Email:", email)
+        input("\nPress ENTER to continue...")       
+                       
     except BaseException as be:
         print(f"Error occurred: {be=}, {be}")
     return
