@@ -24,6 +24,21 @@ def dump(contacts):
         simple_db.write(json.dumps(contacts))
 
 
+# load the contacts into the memory (as dict)
+def load():
+    filename = "./simple_db.json"
+    if os.path.exists(filename):
+        with open(filename, "r") as file:
+            contacts = file.read()
+            if contacts is None or len(contacts) == 0:
+                return []
+            else:
+                return json.loads(contacts)
+    else:
+        with open(filename, "w") as file:
+            return []
+        
+
 # Function for creating new contact
 def create_new_contact():
     # Clears terminal
