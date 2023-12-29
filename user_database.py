@@ -18,14 +18,43 @@ def is_choice_valid(arg):
 
 # Use Case - Main Screen
 os.system("clear")
+# Title header
 header = "Simple Database"
+# Prints line along header
 print("-" * len(header))
 print(header)
 print("-" * len(header), "\n")
 
+# Display list of options for user 
 print("1. Create new contact")
 print("2. Retrieve a contact by email")
 print("3. Update a contact by email")
 print("4. Delete a contact by email")
 print("5. Show Database Contents")
 print("6. Exit\n")
+
+choice = input()
+if is_choice_valid(choice):
+    int_choice = int(choice)
+    # Create new contact
+    if int_choice == 1:
+        print("Create contact was selected")
+        continue
+    # Find contact
+    elif int_choice == 2:
+        continue
+    elif int_choice == 3:
+        print("Update contact was selected")
+        print("\nEnter email of contact to update: ")
+        continue
+    # Delete contact
+    elif int_choice == 4:
+        print("Delete contact was selected")
+        continue
+    elif int_choice == 5:
+        print("Showing Database Contents")
+        continue
+    elif int_choice == 6:
+        print("Exit was selected; Goodbye!")
+        break
+        
