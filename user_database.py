@@ -67,6 +67,17 @@ def create_new_contact():
 
     # Shows new entry info
     print(f"Adding new contact details: {contact}")
+    
+    try:
+        # Retrieve the contacts data
+        contacts = load()
+        # Append the new contact to the database in memory
+        contacts.append(contact)
+        # Flush the database into the filesystem
+        dump(contacts)
+    except BaseException as be:
+        print(f"Error occurred: {be=}, {be}")
+    return
 
 
 while True:
