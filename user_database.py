@@ -46,6 +46,7 @@ def create_new_contact():
     header = "Adding New Contact"
     print("-" * len(header))
     print(header)
+    # \n starts new line
     print("-" * len(header), "\n")
     # Starts input for user info
     print("Enter First Name: ")
@@ -80,6 +81,37 @@ def create_new_contact():
     return
 
 
+# Function for find a contact
+def find_contact():
+    os.system("clear")
+    print("Enter the email address of the contact to find: ")
+    email = input().strip()
+    os.system("clear")
+    print(f"\nValue of email: {email}")
+    # Loads contacts from json 
+    contacts = load()
+    found = False
+    # Find the contact with the matching email
+    for contact in contacts:
+        if contact.get("email").lower() == email.lower():
+            # If email match = true, will display information 
+            found = True
+            # Displays details on screen
+            print('\nContact Details Found:\n')
+            print('First Name:', contact.get('first_name'))
+            print('Last Name:', contact.get('last_name'))
+            print('Mobile:', contact.get('mobile'))
+            print('Email:', contact.get('email'))
+            input('\nHit ENTER key to continue...')
+            break
+    
+    # If found remains false, will then print invalid email
+    if not found:
+        print(f"Unable to find contact with email - {email}")
+        input('\nHit ENTER key to continue...')
+    return
+
+
 while True:
 # Use Case - Main Screen
     os.system("clear")
@@ -110,8 +142,8 @@ while True:
             continue
         # Find contact
         elif int_choice == 2:
-            print("Find contact was selected")
-            pass
+            find_contact()
+            continue
         elif int_choice == 3:
             print("Update contact was selected")
             print("\nEnter email of contact to update: ")
