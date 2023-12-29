@@ -1,5 +1,8 @@
 # Imports functions from separate python file 
-from db_functions import (is_choice_valid, create_new_contact, find_contact, update_contact, delete_contact, show_contacts, clear_screen)
+from db_functions import (is_choice_valid, create_new_contact, 
+                          find_contact, update_contact, 
+                          delete_contact, show_contacts, 
+                          clear_screen)
 import os
 # Imports json file for library read and write
 import json

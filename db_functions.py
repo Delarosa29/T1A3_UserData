@@ -2,7 +2,7 @@ import os
 # Imports json file for library read and write
 import json
 
-
+# Clears terminal screen
 def clear_screen():
     os.system("clear")
 
@@ -102,7 +102,7 @@ def find_contact():
     # Clears terminal screen
     clear_screen()
     print("Enter the email address of the contact to find: ")
-    # .strip() Returns the input string while removing trailing and leading white space
+    # .strip() Returns the input string while removing excess space
     email = input().lower().strip()
     clear_screen()
     print(f"\nValue of email: {email}")
@@ -198,7 +198,7 @@ def delete_contact():
     print(header)
     print("-" * len(header), "\n")
     print("Enter Email Address of the Contact to Delete: ")
-    # .strip() Returns the input string while removing trailing and leading white space
+    # .strip() Returns the input string while removing excess
     email_to_delete = input().lower().strip()
     
     try:
