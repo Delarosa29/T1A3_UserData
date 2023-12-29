@@ -220,6 +220,25 @@ def delete_contact():
     return
 
 
+# Function to display all existing contact
+def show_contacts():
+    # Clears terminal screen
+    os.system('clear')
+    # Displays current menu selection
+    header = 'Database Contents'
+    print('-' * len(header))
+    print(header)
+    print('-' * len(header))
+    # Loads contact from json
+    contacts = load()
+    # Lists the loaded contacts
+    for n in contacts:
+        print(n)
+    # Asks for user confirmation before returning back to menu
+    print('\nHit ENTER key to continue...')
+    input()
+
+
 while True:
 # Use Case - Main Screen
     # Clears terminal
@@ -272,7 +291,8 @@ while True:
         # Displays all the existing contact entries 
         elif int_choice == 5:
             print("Showing Database Contents")
-            pass
+            show_contacts()
+            continue
         elif int_choice == 6:
             print("Exit was selected; Goodbye!")
             break
